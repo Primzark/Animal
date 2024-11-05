@@ -1,0 +1,89 @@
+/* Reset styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #333;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+/* Header styling */
+h1 {
+    font-size: 2em;
+    color: #4caf50;
+    margin: 20px 0;
+}
+
+/* Galerie styling */
+.galerie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px; /* Space between images */
+    padding: 10px;
+}
+
+/* Image styling */
+.galerie img {
+    width: 150px; /* Fixed width for uniform size */
+    height: 150px; /* Fixed height for uniform size */
+    object-fit: cover; /* Ensures images fill the space without distortion */
+    border: 2px solid #fff; /* Thin white border */
+    transition: transform 0.3s, filter 0.3s; /* Smooth transitions */
+}
+
+/* Hover effect for images */
+.galerie img:hover {
+    transform: scale(1.2); /* Increase size */
+    z-index: 1; /* Bring to front */
+    filter: none; /* Remove sepia */
+}
+
+/* Reduce size and apply sepia to other images */
+.galerie img:not(:hover) {
+    transform: scale(0.8); /* Reduce size */
+    filter: sepia(100%); /* Apply sepia effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .galerie img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .galerie img:hover {
+        transform: scale(1.2); /* Keep the same scale effect */
+    }
+
+    .galerie img:not(:hover) {
+        transform: scale(0.8);
+        filter: sepia(100%); /* Ensure sepia is applied here as well */
+    }
+}
+
+@media (max-width: 480px) {
+    .galerie img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .galerie img:hover {
+        transform: scale(1.2);
+    }
+
+    .galerie img:not(:hover) {
+        transform: scale(0.8);
+        filter: sepia(100%); /* Ensure sepia is applied here as well */
+    }
+}
